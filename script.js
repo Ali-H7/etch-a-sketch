@@ -2,7 +2,7 @@ createSquares(16);
 addBackground();
 function createSquares (userInput) {
     let boxNumber = userInput * userInput;
-    let boxSize = 960 / userInput;
+    let boxSize = 768 / userInput;
     for (let i = 0; i < boxNumber; i++){
         const mainContainer = document.querySelector(".main-container");
         const square = document.createElement("div"); 
@@ -24,7 +24,6 @@ function addBackground () {
 function resetTheGrid () {
     const boxes = document.querySelectorAll(".boxes"); 
     let numberOfSquares = prompt("Enter the number of squares per side for the new grid 5-100");
-    console.log(typeof(numberOfSquares));
     if (numberOfSquares >= 5 && numberOfSquares <= 100) {
         boxes.forEach(box => {
             box.remove()

@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     max-height: 100vh;
-    padding-top: 70px;
+    padding-top: 40px;
     flex-direction: column;
     gap: 30px
 
@@ -31,8 +31,8 @@ button {
     display: flex;
     flex-wrap: wrap;
     flex: 1;
-    max-width: 960px;
-    max-height: 960px;
-    min-width: 960px;
-    min-height: 960px;
+    max-width: 768px;
+    max-height: 768px;
+    min-width: 768px;
+    min-height: 768px;
 }
