@@ -6,10 +6,11 @@ function createSquares (userInput) {
     for (let i = 0; i < boxNumber; i++){
         const mainContainer = document.querySelector(".main-container");
         const square = document.createElement("div"); 
-        square.style.border = "1px solid black";
+        square.style.border = "0.1px solid grey";
         square.style.minWidth = boxSize + "px";
         square.style.minHeight = boxSize + "px";
         square.classList.add("boxes");
+        square.style.opacity = "0.1"
         mainContainer.appendChild(square);
     }
 }
@@ -20,7 +21,13 @@ function addBackground () {
             let rgbValue1 = randomizeValue(1, 255);
             let rgbValue2 = randomizeValue(1, 255);
             let rgbValue3 = randomizeValue(1, 255);
-            e.target.style.background = `rgb(${rgbValue1}, ${rgbValue2}, ${rgbValue3})`;
+            const sqaure = e.target;
+            sqaure.style.background = `rgb(${rgbValue1}, ${rgbValue2}, ${rgbValue3})`;
+            if (sqaure.style.opacity >= 0.1 && sqaure.style.opacity <= 1) {
+                let convertedValue = parseFloat(sqaure.style.opacity)
+                sqaure.style.opacity = convertedValue + 0.1
+                console.log(convertedValue);
+            }
         })
     })
 }
