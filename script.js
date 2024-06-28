@@ -1,5 +1,5 @@
 createSquares(16);
-
+addBackground();
 function createSquares (userInput) {
     let boxNumber = userInput * userInput;
     let boxSize = 960 / userInput;
@@ -13,11 +13,31 @@ function createSquares (userInput) {
         mainContainer.appendChild(square);
     }
 }
-
-const boxes = document.querySelectorAll(".boxes"); 
-boxes.forEach(box => {
-    box.addEventListener("mouseover",(e) => {
-        e.target.style.background = "black";
+function addBackground () {
+    const boxes = document.querySelectorAll(".boxes");
+    boxes.forEach(box => {
+        box.addEventListener("mouseover",(e) => {
+            e.target.style.background = "black";
+        })
     })
+}
+function resetTheGrid () {
+    const boxes = document.querySelectorAll(".boxes"); 
+    let numberOfSquares = prompt("Enter the number of squares per side for the new grid 5-100");
+    console.log(typeof(numberOfSquares));
+    if (numberOfSquares >= 5 && numberOfSquares <= 100) {
+        boxes.forEach(box => {
+            box.remove()
+        })
+        createSquares(numberOfSquares);
+        addBackground ()      
+    } else if (numberOfSquares == null){
+        alert("User Cancelled");
+    } else {
+        alert("Invalid Input");
+    }
+}
+const resetBtn = document.querySelector("button");
+resetBtn.addEventListener("click", () => { 
+    resetTheGrid();
 })
-
