@@ -17,7 +17,10 @@ function addBackground () {
     const boxes = document.querySelectorAll(".boxes");
     boxes.forEach(box => {
         box.addEventListener("mouseover",(e) => {
-            e.target.style.background = "black";
+            let rgbValue1 = randomizeValue(1, 255);
+            let rgbValue2 = randomizeValue(1, 255);
+            let rgbValue3 = randomizeValue(1, 255);
+            e.target.style.background = `rgb(${rgbValue1}, ${rgbValue2}, ${rgbValue3})`;
         })
     })
 }
@@ -40,3 +43,7 @@ const resetBtn = document.querySelector("button");
 resetBtn.addEventListener("click", () => { 
     resetTheGrid();
 })
+
+function randomizeValue(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
